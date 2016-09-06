@@ -1,19 +1,4 @@
-require 'HTTParty'
-require 'json'
-
-class Player
-  def initialize(player_attrs)
-    @api_id = player_attrs.fetch('id')
-    @first_name = player_attrs.fetch('first_name')
-    @last_name = player_attrs.fetch('last_name')
-    @jersey_number = player_attrs.fetch('jersey_number')
-    @birthdate = player_attrs.fetch('birthdate')
-    @height = player_attrs.fetch('height')
-    @weight = player_attrs.fetch('weight')
-    @bat_hand = player_attrs.fetch('bat_hand')
-    @throw_hand = player_attrs.fetch('throw_hand')
-    @primary_position = player_attrs.fetch('primary_position')
-
+class Player < ActiveRecord::Base
     # Leage standing api call required for below
     # @hits
     # @homeruns
@@ -24,13 +9,7 @@ class Player
     # @win_loss
     # @era
     # @strikeouts
-  end
 
-  def self.create(api_id)
-    player_response = HTTParty.get("https://api.sportradar.us/mlb-t5/players/#{api_id}/profile.json?api_key=88wqfh5nswegkgjhp23ptrse")
-    player_JSON = JSON.parse(player_response.to_json)
-    self.new(player_JSON['player'])
-  end
 
   def age
     # do some birthdate calculation here

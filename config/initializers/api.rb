@@ -1,0 +1,1 @@
+SPORT_KEY = ENV["SR_API_KEY"]

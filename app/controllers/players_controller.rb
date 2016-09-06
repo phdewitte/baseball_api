@@ -1,12 +1,6 @@
-class Team < ActiveRecord::Base
-  #validations
-
-  def full_name
-    "#{self.market} #{self.name}"
-  end
-
-  def roster
-    self.players.each do |player|
+class PlayersController < ApplicationController
+  def populate
+    @players = self.players.map do |player|
       sleep 1
       player_info = SportAPI.player_call(player['id'])
       Player.create(
@@ -25,4 +19,3 @@ class Team < ActiveRecord::Base
     redirect_to @team
   end
 end
-

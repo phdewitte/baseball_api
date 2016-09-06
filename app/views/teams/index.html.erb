@@ -1,0 +1,7 @@
+<%= link_to('Populate Teams', teams_populate_path) %>
+
+<ul>
+  <% @teams.each do |team| %>
+    <li><%= link_to(team.full_name, team) %></li>
+  <% end %>
+</ul>
