@@ -1,6 +1,16 @@
 <%= @team.market %>
 <%= @team.name %>
 
-<%= link_to('Populate Players', players_populate_path) %>
-
-<%= @team.roster %>
+<ul>
+<% @team.roster.each do |player| %>
+  <li>
+    Name: <%= "#{player.first_name} #{player.last_name}" %>
+    Jersey: <%= "#{player.jersey_number}" %>
+    Position: <%= "#{player.primary_position}" %>
+    Batting Hand: <%= "#{player.bat_hand}" %>
+    Throwing Hand: <%= "#{player.throw_hand}" %>
+    Height: <%= "#{player.height}" %>
+    Weight: <%= "#{player.weight}" %>
+  </li>
+<% end %>
+</ul>
