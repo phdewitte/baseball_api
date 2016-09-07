@@ -7,9 +7,5 @@ class Team < ActiveRecord::Base
     "#{self.market} #{self.name}"
   end
 
-  def roster
-    Player.where(team_id: self.api_id)
-  end
-
 end
 

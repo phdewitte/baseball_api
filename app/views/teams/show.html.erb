@@ -2,7 +2,7 @@
 <%= @team.name %>
 
 <ul>
-<% @team.roster.each do |player| %>
+<% @team.players.each do |player| %>
   <li>
     Name: <%= "#{player.first_name} #{player.last_name}" %>
     Jersey: <%= "#{player.jersey_number}" %>

@@ -26,7 +26,7 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
 
-    if @team.roster.empty?
+    if @team.players.empty?
       @team.api_players.each do |player|
         sleep 1
         parsed_player = eval(player)
@@ -44,16 +44,12 @@ class TeamsController < ApplicationController
           throw_hand: player_info['throw_hand'],
           primary_position: player_info['primary_position']
         )
+        new_player_obj.team = @team
         if !new_player_obj.save
           "Double check your api call"
         end
       end
-      redirect_to team_path(@team)
     end
-  end
-
-  def cubs
-    cubs_info = Team.where(name: 'Cubs')
   end
 
 end

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hits: 1
+  homeruns: 1
+  rbi: 1
+  avg: 1.5
+  obp: 1.5
+  ops: 1.5
+  win_loss: MyString
+  era: 1.5
+  strikeouts: 1
+
+two:
+  hits: 1
+  homeruns: 1
+  rbi: 1
+  avg: 1.5
+  obp: 1.5
+  ops: 1.5
+  win_loss: MyString
+  era: 1.5
+  strikeouts: 1
